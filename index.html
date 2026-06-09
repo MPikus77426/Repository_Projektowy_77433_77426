@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moja Biblioteka</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">📚 Biblioteka</div>
+        <div class="nav-controls">
+            <input type="text" id="search-input" placeholder="Szukaj książki...">
+            <button id="edit-mode-btn" class="btn-secondary">Edytuj</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="admin-section" id="admin-panel" style="display: none;">
+            <h2 id="form-title">Dodaj nową książkę</h2>
+            <form id="book-form">
+                <input type="hidden" id="book-id">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Tytuł książki:</label>
+                        <input type="text" id="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Autor:</label>
+                        <input type="text" id="author" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Gatunek / Kategoria:</label>
+                        <select id="category">
+                            <option value="Fantastyka">Fantastyka</option>
+                            <option value="Kryminał">Kryminał</option>
+                            <option value="Nauka">Nauka</option>
+                            <option value="Inne">Inne</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>URL Okładki (zdjęcie):</label>
+                        <input type="url" id="cover" placeholder="https://link/">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Opis:</label>
+                    <textarea id="description" required></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary" id="submit-btn">Zapisz książkę</button>
+            </form>
+        </section>
+
+        <section class="book-list-section">
+            <h2>Katalog Książek</h2>
+            <div id="book-list" class="book-grid"></div>
+        </section>
+    </div>
+
+    <div id="book-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="modal-body">
+                </div>
+            <div class="reviews-section">
+                <h3>Opinie i dyskusja</h3>
+                <div id="reviews-list">Brak opinii. Bądź pierwszy!</div>
+                <textarea id="review-text" placeholder="Napisz swoją opinię..." style="width: 100%; margin-top: 10px;"></textarea>
+                <button id="add-review-btn" class="btn-primary" style="margin-top: 5px;">Dodaj opinię</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
